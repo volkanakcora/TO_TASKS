@@ -1,0 +1,4 @@
+- name: Migrate sqlite
+  command: 
+    cmd: "{{ backend_venv_path }}/bin/alembic -c {{ backend_config_path }} upgrade head"
+    chdir: "{{ backend_path }}"

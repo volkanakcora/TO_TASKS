@@ -1,0 +1,28 @@
+- name: Install Container requires
+  become: yes
+  become_user: root
+  yum:
+    name:
+      - podman
+      - skopeo
+      - buildah
+   
+    state: present
+
+- name: Pull latest image
+  podman_image:
+    name: rhel
+    tag: latest
+
+- name: Running rhel image.
+   containers.podman.podman_container:
+     name: pythonapp
+     image:  registry.access.redhat.com/rhel
+     state: started
+     register: podman_result
+
+ - name: Show stdout from the previous task.
+    debug:
+      msg: "STDOUT from previous task: {{ item.stdout }}"
+    loop: "{{ podman_result['results'] }}"
+

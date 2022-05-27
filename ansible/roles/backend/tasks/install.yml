@@ -1,0 +1,61 @@
+- name: Install python requires
+  become: yes
+  become_user: root
+  yum:
+    name:
+      - python3
+      - python3-pip
+      - python3-virtualenv
+      - python3-devel
+    state: present
+
+- name: Create backend folder
+  file:
+    path: "{{ backend_path }}"
+    state: directory
+    owner: "{{ backend_user }}"
+    group: "{{ backend_user }}"
+
+- name: Create venv and update base packages
+  pip:
+    name:
+      - pip
+      - setuptools
+      - wheel
+      
+    state: latest
+    virtualenv: "{{ backend_venv_path }}"
+    virtualenv_command: "virtualenv-3"
+
+- name: Copy backend wheel to remote
+  copy:
+    src: "{{ backend_wheel_local_src_path }}"
+    dest: "{{ backend_wheel_dest_path }}"
+    owner: "{{ backend_user }}"
+    group: "{{ backend_user }}"
+
+- name: Install backend with pip
+  pip:
+    name: "{{ backend_wheel_dest_path }}"
+    state: forcereinstall
+    virtualenv: "{{ backend_venv_path }}"
+    virtualenv_command: "virtualenv-3"
+
+- name: Deploy systemd unit
+  become: true
+  become_user: root
+  template:
+    src: "python.service.j2"
+    dest: "{{ backend_systemd_unit_path }}"
+    owner: root
+    group: root
+  register: deploy_unit
+
+- name: Reload systemd daemon
+  become: true
+  become_user: root
+  systemd:
+    name: "{{ backend_systemd_unit }}"
+    enabled: true
+    daemon_reload: true
+  when: deploy_unit.changed

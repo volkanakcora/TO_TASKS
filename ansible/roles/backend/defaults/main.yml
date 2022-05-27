@@ -1,0 +1,24 @@
+backend_user: "kpidpu"
+backend_path: "/opt/kpi/backend"
+backend_venv_path: "{{ backend_path }}/venv"
+
+# Package src and dest
+# NOTE: Github auth required to download wheel. So for now just expexting a the wheel to be in energy.statuspage/ansible/playbooks/files/energy_status_page.whl
+#backend_wheel_url: "https://github.deutsche-boerse.de/dev/energy.statuspage/releases/download/v0.1.1/energy_status_page-0.1.1-py3-none-any.whl"
+backend_wheel_local_src_path: "files/kpi_collectors-1.0.0-py3-none-any.whl"
+
+backend_wheel_dest_path: "{{ backend_path }}/kpi_collectors-1.0.0-py3-none-any.whl"
+backend_config_path: "{{ backend_path }}/postgres.ini"
+
+# Systemd unit
+backend_systemd_unit: "python.service"
+backend_systemd_unit_path: "/etc/systemd/system/python.service"
+
+# App config
+backend_listen: "127.0.0.1"
+backend_port: "5432"
+
+python_systemd: "postgres.ini.j2"
+
+certificate: "files/newfile.pem"
+backend_certificate_path: "{{ backend_path }}/newfile.pem"

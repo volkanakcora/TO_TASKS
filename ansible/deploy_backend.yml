@@ -1,0 +1,39 @@
+- name: Deploy backend
+  hosts: kpihost
+  become: true
+  ignore_errors: true
+  roles:
+    - backend
+  environment:
+    PIP_INDEX_URL: "https://artifactory.dbgcloud.io/artifactory/api/pypi/pypi.python.org/simple"
+    http_proxy: "http://webproxy.deutsche-boerse.de:8080"
+    https_proxy: "http://webproxy.deutsche-boerse.de:8080"
+    no_proxy: ".deutsche-boerse.de,localhost,.dbgcloud.io"
+
+  # tasks:
+  #   - name: copy db-backup file to the directory
+  #     copy:
+  #       src: roles/backend/files/lastdbexport.pgsql
+  #       dest: /var/lib/postgresql/
+
+  #   - name: Make sure an inventory database exists
+  #     mysql_db:
+  #       name: englobkpi 
+  #       state: present
+  #     register: inventory_present
+
+  #   - name: Is inventory database backup present?
+  #     stat:
+  #       path: /var/lib/postgresql/lastdbexport.pgsql
+  #     register: inventory_bkup
+    
+  #   - name: Import inventory backup data
+  #     mysql_db:
+  #       name: englobkpi
+  #       state: import
+  #       target: /var/lib/postgresql/lastdbexport.pgsql
+  #     when:
+  #       - inventory_present['changed'] == false
+  #       - inventory_bkup['stat']['exists'] == true
+
+
