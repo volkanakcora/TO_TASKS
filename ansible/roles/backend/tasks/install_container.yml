@@ -1,6 +1,7 @@
 - name: Install Container requires
   become: yes
   become_user: root
+  ignore_errors: yes
   yum:
     name:
       - podman
@@ -14,15 +15,15 @@
    
 - name: Show stdout from the previous task.
   debug:
-    msg: "STDOUT from previous task: {{ item.stdout }}"
-  loop: "{{ image_result['results'] }}"
+    var: image_result
 
-- name: Pull latest image
+- name: start the container image
   command: podman run --name=rhel registry.access.redhat.com/rhel /bin/bash
-  register: image_result
+  register: container_result
 
 - name: Show stdout from the previous task.
   debug:
-    msg: "STDOUT from previous task: {{ item.stdout }}"
-  loop: "{{ podman_result['results'] }}"
+    var: container_result
 
+- name: show the podman
+  command: podman ps -a
