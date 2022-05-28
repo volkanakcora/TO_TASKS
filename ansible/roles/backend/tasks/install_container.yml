@@ -8,16 +8,28 @@
       - buildah
     state: present
 
-- name: Pull latest image
-  command: podman pull latest
-  register: image_result
+- name: Go to the folder and execute command
+  command: chdir=/opt/chucknorris/temp ls
+
+- name: build a python image 
+  command: podman build --tag kpi -f docker
+  register: rhel_result
    
 - name: Show stdout from the previous task.
   debug:
     msg: "STDOUT from previous task: {{ item.stdout }}"
-  loop: "{{ image_result['results'] }}"
+  loop: "{{ rhel_result['results'] }}"
 
-- name: Pull latest image
+- name: Pull latest image httpd
+  command: podman pull httpd
+  register: httpd_result
+   
+- name: Show stdout from the previous task.
+  debug:
+    msg: "STDOUT from previous task: {{ item.stdout }}"
+  loop: "{{ httpd_result['results'] }}"
+
+- name: run the rhel container
   command: podman run --name=rhel registry.access.redhat.com/rhel /bin/bash
   register: image_result
 

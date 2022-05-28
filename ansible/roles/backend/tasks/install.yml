@@ -41,21 +41,6 @@
     virtualenv: "{{ backend_venv_path }}"
     virtualenv_command: "virtualenv-3"
 
-- name: Deploy systemd unit
-  become: true
-  become_user: root
-  template:
-    src: "python.service.j2"
-    dest: "{{ backend_systemd_unit_path }}"
-    owner: root
-    group: root
-  register: deploy_unit
 
-- name: Reload systemd daemon
-  become: true
-  become_user: root
-  systemd:
-    name: "{{ backend_systemd_unit }}"
-    enabled: true
-    daemon_reload: true
-  when: deploy_unit.changed
+
+

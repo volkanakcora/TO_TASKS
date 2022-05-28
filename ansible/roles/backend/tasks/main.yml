@@ -1,25 +1,21 @@
-# - name: Stop backend
-#   import_tasks: stop.yml
-#   tags: stop
+- name: Stop backend
+  import_tasks: stop.yml
+  tags: stop
 
 - name: deploy container
   import_tasks: install_container.yml
   tags: container
 
-# - name: Install backend
-#   import_tasks: install.yml
-#   tags: install
+- name: Install backend
+  import_tasks: install.yml
+  tags: install
 
-# - name: Configure backend
-#   import_tasks: configure.yml
-#   tags: configure
+- name: Configure backend
+  import_tasks: configure.yml
+  tags: configure
 
-# - name: Migrate db backend
-#   import_tasks: migrate_db.yml
-#   tags: migrate_db
-
-# - name: Start backend
-#   import_tasks: start.yml
-#   tags: start
+- name: Start backend
+  import_tasks: start.yml
+  tags: start
 
 

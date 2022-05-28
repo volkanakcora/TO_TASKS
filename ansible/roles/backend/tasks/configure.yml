@@ -1,14 +1,9 @@
-- name: Deploy config
+- name: Deploy dockerfile
   template:
-    src: "{{ python_systemd }}"
-    dest: "{{ backend_config_path }}"
+    src: "{{ docker_file_dest }}"
+    dest: "{{ docker_file_dest }}"
     owner: "{{ backend_user }}"
     group: "{{ backend_user }}"
 
-- name: Deploy certificate
-  template:
-    src: "{{ certificate }}"
-    dest: "{{ backend_certificate_path }}"
-    owner: "{{ backend_user }}"
-    group: "{{ backend_user }}"
+
 
