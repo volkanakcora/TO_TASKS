@@ -8,9 +8,11 @@
       - skopeo
       - buildah
     state: present
+
+- name: deploy the docker file
   notify: deploy_docker_file
 
-- name: Check for existence of index.html
+- name: Check for existence of docker
   stat:
     path: "{{ docker_file_dest }}/docker"
   register: docker_stats
