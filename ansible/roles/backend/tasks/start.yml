@@ -14,11 +14,11 @@
 - name: start the backend in container(chuckmoris)
   become: true
   become_user: root
-  command: podman exec python run_chucknorris
+  command: podman exec python run_chucknorris &
   register: chuckmoris_result
 
 - name: start the webapp in container
   become: true
   become_user: root
-  command: podman exec python run_web
+  command: podman exec python run_web &
   register: webserver_result
