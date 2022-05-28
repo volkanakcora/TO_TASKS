@@ -6,10 +6,6 @@
   import_tasks: install.yml
   tags: install
 
-- name: Configure backend
-  import_tasks: configure.yml
-  tags: configure
-
 - name: deploy container
   import_tasks: install_container.yml
   tags: container
