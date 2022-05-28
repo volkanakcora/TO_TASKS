@@ -1,5 +1,21 @@
-- name: Clean all images and containers
+- name: Clean all images 
   become: true
   become_user: root
-  command: podman rmi -a -f; podman system prune; podman images; podman ps -a
+  command: podman rmi -a -f
+
+- name: Clean all containers
+  become: true
+  become_user: root
+  command: podman system prune
+
+- name: check all images 
+  become: true
+  become_user: root
+  command: podman images
+
+- name: check all containers
+  become: true
+  become_user: root
+  command: podman ps -a
+
     
