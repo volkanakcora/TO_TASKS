@@ -5,6 +5,7 @@ from .jokescript.retrievejokes import jokes
 def run_jokes_collector():
     jokes_random = jokes()
     jokes_final = jokes_random.run()
+    return jokes_final
    
 
 def main():

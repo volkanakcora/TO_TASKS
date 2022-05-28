@@ -10,6 +10,6 @@ class jokes(CollectorBase):
     def run(self):
         chuck_morris = requests.get('https://api.chucknorris.io/jokes/random')
         json_data = json.loads(chuck_morris.text)
-        with open("web/jokes.txt", "w") as myfile:
+        with open("jokes.txt", "w") as myfile:
             myfile.write(json_data['value'])
         return print(json_data['value'])

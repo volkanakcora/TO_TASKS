@@ -3,14 +3,15 @@ import dash_html_components as html
 import dash_core_components as dcc
 import sys
 import os
+
 print(os.getcwd())
+#os.chdir('/usr/local/lib/python3.8/site-packages/chuchnorris')
 
 class web_app():
     """
     Web Application class.
     """
-   
-
+    
     app = dash.Dash()
 
     app.layout = html.Div([
@@ -28,17 +29,20 @@ class web_app():
         [dash.dependencies.Input('interval1', 'n_intervals')])
     def update_interval(n):
         orig_stdout = sys.stdout
-        f = open('jokes.txt', 'a')
-        sys.stdout = f
+        #f = open('jokes.txt', 'a')
+        #sys.stdout = f
         print ('Intervals Passed: ' + str(n))
         sys.stdout = orig_stdout
-        f.close()
+        #f.close()
         
     @app.callback(dash.dependencies.Output('console-out', 
     'srcDoc'),
     [dash.dependencies.Input('interval2', 'n_intervals')])
-    def update_output(n):
-        file = open('web/jokes.txt', 'r')
+    def update_output(self):
+        os.chdir('./')
+        print(os.getcwd())
+        file = open('jokes.txt', 'r')
+        print(file)
         data=''
         lines = file.readlines()
         if lines.__len__()<=20:
