@@ -1,4 +1,4 @@
 FROM python:3.8
 WORKDIR /usr/src/app
-COPY kpi_collectors-1.0.0-py3-none-any.whl .
-RUN pip3 install kpi_collectors-1.0.0-py3-none-any.whl 
+COPY chucknorris-1.0.0-py3-none-any.whl .
+RUN pip3 install chucknorris-1.0.0-py3-none-any.whl 
