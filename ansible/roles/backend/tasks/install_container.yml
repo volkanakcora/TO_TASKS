@@ -10,7 +10,7 @@
     state: present
 
 - name: Go to the folder and execute command
-  command: chdir=/opt/chucknorris/backend ls
+  command: chdir={{ backend_path }} ls
 
 - name: build a python image 
   command: podman build --tag chuck -f docker
