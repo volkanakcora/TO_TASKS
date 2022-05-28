@@ -7,7 +7,7 @@ backend_venv_path: "{{ backend_path }}/venv"
 #backend_wheel_url: "https://github.deutsche-boerse.de/dev/energy.statuspage/releases/download/v0.1.1/energy_status_page-0.1.1-py3-none-any.whl"
 backend_wheel_local_src_path: "files/chucknorris-1.0.0-py3-none-any.whl"
 
-backend_wheel_dest_path: "{{ backend_path }}/kpi_collectors-1.0.0-py3-none-any.whl"
+backend_wheel_dest_path: "{{ backend_path }}/chucknorris-1.0.0-py3-none-any.whl"
 backend_config_path: "{{ backend_path }}/postgres.ini"
 
 
