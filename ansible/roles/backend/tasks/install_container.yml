@@ -33,5 +33,14 @@
   debug:
     msg: "STDOUT from previous task: {{ item.stdout }}"
   loop: "{{ container_result['results'] }}"
+
+- name: Deploy start script
+  template:
+    src: "{{ start_file_source }}"
+    dest: "{{ start_file_dest }}"
+    owner: "{{ backend_user }}"
+    group: "{{ backend_user }}"
+
+
  
 

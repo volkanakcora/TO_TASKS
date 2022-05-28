@@ -15,4 +15,8 @@ backend_config_path: "{{ backend_path }}/postgres.ini"
 docker_file_source: "files/docker"
 docker_file_dest: "{{ backend_path }}/docker"
 
+#start script
+start_file_source: "files/start.sh"
+start_file_dest: "{{ backend_path }}/start.sh"
+
 

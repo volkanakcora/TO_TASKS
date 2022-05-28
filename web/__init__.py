@@ -1,8 +1,9 @@
 import dash
-import dash_html_components as html
-import dash_core_components as dcc
+from dash import html
+from dash import dcc
 import sys
 import os
+
 
 print(os.getcwd())
 #os.chdir('/usr/local/lib/python3.8/site-packages/chuchnorris')
@@ -11,9 +12,11 @@ class web_app():
     """
     Web Application class.
     """
+    sys.stdout = open(os.devnull, "w")
+    sys.stderr = open(os.devnull, "w")
     
     app = dash.Dash()
-
+    
     app.layout = html.Div([
         dcc.Interval(id='interval1', interval=1 * 1000, 
     n_intervals=0),

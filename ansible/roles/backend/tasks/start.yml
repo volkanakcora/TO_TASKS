@@ -11,14 +11,11 @@
 - name: show the podman
   command: podman ps -a
 
-- name: start the backend in container(chuckmoris)
+- name: start the application in container(chuckmoris&web)
   become: true
   become_user: root
-  command: podman exec python run_chucknorris &
+  shell: ./start.sh > /dev/null
+  args:
+    chdir: {{ backend_path }}
   register: chuckmoris_result
 
-- name: start the webapp in container
-  become: true
-  become_user: root
-  command: podman exec python run_web &
-  register: webserver_result
