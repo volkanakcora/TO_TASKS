@@ -1,7 +1,7 @@
 - name: start the rhel container
   become: true
   become_user: root
-  command: podman run --name=pyapp --net=host localhost/chuck /bin/bash
+  command: podman run -dit --name=python localhost/chuck /bin/bash
   register: container_result
 
 - name: Show stdout from the previous task.
