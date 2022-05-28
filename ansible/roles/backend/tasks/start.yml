@@ -16,6 +16,6 @@
   become_user: root
   shell: ./start.sh > /dev/null
   args:
-    chdir: {{ backend_path }}
+    chdir: "{{ backend_path }}"
   register: chuckmoris_result
 
