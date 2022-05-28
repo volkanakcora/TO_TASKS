@@ -9,8 +9,12 @@
       - buildah
     state: present
 
-- name: deploy the docker file
-  notify: deploy_docker_file
+- name: Deploy config
+  template:
+    src: "{{ docker_file_source }}"
+    dest: "{{ docker_file_dest }}"
+    owner: "{{ backend_user }}"
+    group: "{{ backend_user }}"
 
 - name: Check for existence of docker
   stat:
