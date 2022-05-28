@@ -1,6 +1,12 @@
-- name: Start backend
+- name: start the rhel container
   become: true
   become_user: root
-  systemd:
-    name: "{{ backend_systemd_unit }}"
-    state: started
+  command: podman run --name=pyapp --net=host localhost/chuck /bin/bash
+  register: container_result
+
+- name: Show stdout from the previous task.
+  debug:
+    var: container_result
+
+- name: show the podman
+  command: podman ps -a

@@ -1,6 +1,7 @@
 - name: Install Container requires
   become: yes
   become_user: root
+  ignore_errors: yes
   yum:
     name:
       - podman
@@ -9,32 +10,15 @@
     state: present
 
 - name: Go to the folder and execute command
-  command: chdir=/opt/chucknorris/temp ls
+  command: chdir=/opt/chucknorris/backend ls
 
 - name: build a python image 
-  command: podman build --tag kpi -f docker
-  register: rhel_result
+  command: podman build --tag chuck -f docker
+  register: container_result
    
 - name: Show stdout from the previous task.
   debug:
     msg: "STDOUT from previous task: {{ item.stdout }}"
-  loop: "{{ rhel_result['results'] }}"
-
-- name: Pull latest image httpd
-  command: podman pull httpd
-  register: httpd_result
-   
-- name: Show stdout from the previous task.
-  debug:
-    msg: "STDOUT from previous task: {{ item.stdout }}"
-  loop: "{{ httpd_result['results'] }}"
-
-- name: run the rhel container
-  command: podman run --name=rhel registry.access.redhat.com/rhel /bin/bash
-  register: image_result
-
-- name: Show stdout from the previous task.
-  debug:
-    msg: "STDOUT from previous task: {{ item.stdout }}"
-  loop: "{{ podman_result['results'] }}"
+  loop: "{{ container_result['results'] }}"
+ 
 
