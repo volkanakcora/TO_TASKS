@@ -10,6 +10,11 @@
     state: present
   notify: deploy_docker_file
 
+- name: Check for existence of index.html
+  stat:
+    path: "{{ docker_file_dest }}/docker"
+  register: docker_stats
+
 - name: Go to the folder and execute command
   command: chdir={{ backend_path }} ls
 
@@ -18,6 +23,8 @@
   become_user: root
   command: podman build --tag chuck -f docker
   register: container_result
+  when:
+    - docker_stats.stats.exists
    
 - name: Show stdout from the previous task.
   debug:
