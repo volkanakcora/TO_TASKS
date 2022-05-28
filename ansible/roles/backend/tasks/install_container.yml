@@ -30,7 +30,7 @@
   command: podman build --tag chuck -f docker
   register: container_result
   when:
-    - docker_stats.stats.exists
+    - docker_stats.stat.exists
    
 - name: Show stdout from the previous task.
   debug:
