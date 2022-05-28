@@ -1,6 +1,6 @@
 - name: Deploy dockerfile
   template:
-    src: "{{ docker_file_dest }}"
+    src: "{{ docker_file_source }}"
     dest: "{{ docker_file_dest }}"
     owner: "{{ backend_user }}"
     group: "{{ backend_user }}"

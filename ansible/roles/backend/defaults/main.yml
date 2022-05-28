@@ -1,5 +1,5 @@
 backend_user: "kpidpu"
-backend_path: "/opt/kpi/backend"
+backend_path: "/opt/chucknorris/backend"
 backend_venv_path: "{{ backend_path }}/venv"
 
 # Package src and dest
