@@ -14,6 +14,8 @@
   command: chdir={{ backend_path }} ls
 
 - name: build a python image 
+  become: yes
+  become_user: root
   command: podman build --tag chuck -f docker
   register: container_result
    
