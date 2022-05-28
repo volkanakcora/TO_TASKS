@@ -21,13 +21,10 @@
     path: "{{ docker_file_dest }}"
   register: docker_stats
 
-- name: Go to the folder
-  command: chdir={{ backend_path }} 
-
 - name: build a python image 
   become: yes
   become_user: root
-  command: podman build --tag chuck -f docker
+  command: podman build --tag chuck -f {{ docker_file_dest }}
   register: container_result
   when:
     - docker_stats.stat.exists
