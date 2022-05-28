@@ -38,8 +38,8 @@
   template:
     src: "{{ start_file_source }}"
     dest: "{{ start_file_dest }}"
-    owner: "{{ backend_user }}"
-    group: "{{ backend_user }}"
+    owner: root
+    group: root
 
 
  
