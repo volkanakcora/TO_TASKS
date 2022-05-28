@@ -18,7 +18,7 @@
 
 - name: Check for existence of docker
   stat:
-    path: "{{ docker_file_dest }}/docker"
+    path: "{{ docker_file_dest }}"
   register: docker_stats
 
 - name: Go to the folder
