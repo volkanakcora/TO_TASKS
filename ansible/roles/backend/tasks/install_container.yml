@@ -16,7 +16,7 @@
     owner: "{{ backend_user }}"
     group: "{{ backend_user }}"
 
-- name: Check for existence of docker
+- name: Check for existence of docker file
   stat:
     path: "{{ docker_file_dest }}"
   register: docker_stats
