@@ -1,14 +1,3 @@
-- name: Create nginx user
-  become: true
-  become_user: root
-  vars_files:
-          - defaults/users_vars.yml
-  handlers:
-     - name: Restart sshd
-       service:
-         name: sshd
-         state: restarted
-
 - name: Add webadmin group
   group:
         name: webadmin
@@ -31,3 +20,8 @@
     content: "%webadmin ALL=(ALL) NOPASSWD: ALL"
     dest: /etc/sudoers.d/webadmin
     mode: 0440
+
+- name: Restart sshd
+  service:
+         name: sshd
+         state: restarted
