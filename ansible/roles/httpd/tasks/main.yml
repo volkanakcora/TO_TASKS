@@ -1,14 +1,14 @@
 - name: create apache user
   import_tasks: configure_apache_user.yml
-  tags: deploy_httpd
+  tags: deploy_nginx
 
-- name: Install backend
+- name: Install nginx
   import_tasks: install.yml
-  tags: deploy_httpd
+  tags: deploy_nginx
 
 - name: deploy httpd conf file
   import_tasks: configure.yml
-  tags: deploy_httpd
+  tags: deploy_nginx
 
 
 
