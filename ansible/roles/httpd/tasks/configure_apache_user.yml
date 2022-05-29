@@ -1,5 +1,4 @@
----
-- name: Create apache user
+- name: Create nginx user
   become: true
   become_user: root
   vars_files:

@@ -1,11 +1,11 @@
-- name: Latest software installed for Apache HTTPD
+- name: Latest software installed for nginx 
     yum:
-      name: "{{ httpd_packages }}"
+      name: "{{ nginx_packages }}"
       state: present
 
 - name: Web server is started and enabled
     service:
-      name: httpd
+      name: nginx
       state: started
       enabled: yes
 

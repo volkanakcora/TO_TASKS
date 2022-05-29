@@ -1,5 +1,5 @@
 #!/bin/bash
 set -e 
 
-podman exec python run_web -D &
+podman exec python bash -c 'gunicorn wsgi:application' -D &
 podmon exec python run_chucknorris -D &

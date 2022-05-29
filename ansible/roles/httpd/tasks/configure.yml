@@ -7,6 +7,6 @@
 
 - name: Web server is restarted
     service:
-      name: httpd
+      name: nginx
       state: restarted
       enabled: yes

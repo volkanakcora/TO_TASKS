@@ -1,3 +1,4 @@
+from distutils.log import debug
 import dash
 from dash import html
 from dash import dcc
@@ -12,11 +13,11 @@ class web_app():
     """
     Web Application class.
     """
-    sys.stdout = open(os.devnull, "w")
-    sys.stderr = open(os.devnull, "w")
+    #sys.stdout = open(os.devnull, "w")
+    #sys.stderr = open(os.devnull, "w")
     
-    app = dash.Dash()
-    
+    app = dash.Dash(__name__)
+    server = app.server
     app.layout = html.Div([
         dcc.Interval(id='interval1', interval=1 * 1000, 
     n_intervals=0),
@@ -44,7 +45,7 @@ class web_app():
     def update_output(self):
         os.chdir('./')
         print(os.getcwd())
-        file = open('jokes.txt', 'r')
+        file = open('../jokes.txt', 'r')
         print(file)
         data=''
         lines = file.readlines()
@@ -61,12 +62,13 @@ class web_app():
     def run(self):
         """Run the app."""
 
-        self.app.run_server()
+        self.app.run_server(debug=True, host='0.0.0.0')
 
     #!------------------------------------------------------------------------
+
 
 def main(): 
     web_app().run()
 
 if __name__ == "__main__":
-   main()
+   web_app.run()
