@@ -1,10 +1,10 @@
 - name: Latest software installed for nginx 
-    yum:
+  yum:
       name: "{{ nginx_packages }}"
       state: present
 
 - name: Web server is started and enabled
-    service:
+  service:
       name: nginx
       state: started
       enabled: yes
