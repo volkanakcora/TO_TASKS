@@ -1,0 +1,11 @@
+- name: Latest software installed for Apache HTTPD
+    yum:
+      name: "{{ httpd_packages }}"
+      state: present
+
+- name: Web server is started and enabled
+    service:
+      name: httpd
+      state: started
+      enabled: yes
+

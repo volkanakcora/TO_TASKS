@@ -1,0 +1,4 @@
+---
+users:
+  - username: user1
+    groups: webadmin

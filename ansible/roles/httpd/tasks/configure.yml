@@ -1,0 +1,12 @@
+- name: Virtual host is configured
+  template:
+    src: "{{ apache_file_source }}"
+    dest: "{{ apache_file_dest }}"
+    owner: "{{ backend_user }}"
+    group: "{{ backend_user }}"
+
+- name: Web server is restarted
+    service:
+      name: httpd
+      state: restarted
+      enabled: yes

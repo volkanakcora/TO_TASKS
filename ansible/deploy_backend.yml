@@ -4,6 +4,7 @@
   ignore_errors: true
   roles:
     - backend
+    - httpd
   environment:
     PIP_INDEX_URL: "https://artifactory.dbgcloud.io/artifactory/api/pypi/pypi.python.org/simple"
     http_proxy: "http://webproxy.deutsche-boerse.de:8080"

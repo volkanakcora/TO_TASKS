@@ -1,4 +1,4 @@
-- name: start the rhel container
+- name: start the python container
   become: true
   become_user: root
   command: podman run -dit  --net=host --name=python localhost/chuck /bin/bash
