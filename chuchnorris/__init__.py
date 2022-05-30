@@ -1,6 +1,7 @@
 import schedule
 import time
 from .jokescript.retrievejokes import jokes
+from ..web import wsgi
 
 def run_jokes_collector():
     jokes_random = jokes()
