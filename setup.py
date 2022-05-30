@@ -17,7 +17,7 @@ requirements = [
 	'schedule',
     'dash',
     'pandas',
-	'gunicorn',
+	'gunicorn'
 
 ] 
 

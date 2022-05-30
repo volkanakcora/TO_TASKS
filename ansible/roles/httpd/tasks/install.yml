@@ -1,11 +1,23 @@
-- name: Latest software installed for nginx 
-  yum:
-      name: "{{ nginx_packages }}"
-      state: present
+# - name:  installed for nginx 
+#   yum:
+#       name: "{{ nginx_packages }}"
+#       state: present
 
-- name: Web server is started and enabled
-  service:
-      name: nginx
-      state: started
-      enabled: yes
+# - name: Web server is started and enabled
+#   service:
+#       name: nginx
+#       state: started
+#       enabled: yes
 
+
+- block:
+        - name: Ensure httpd is installed
+          yum:
+              name:  "{{ nginx_packages }}"
+              state: installed
+        - name: Start and enable webserver
+              service:
+              name: nginx
+              state: started
+              enabled: yes
+          become: true

@@ -71,4 +71,4 @@ def main():
     web_app().run()
 
 if __name__ == "__main__":
-   web_app.run()
+   main()
