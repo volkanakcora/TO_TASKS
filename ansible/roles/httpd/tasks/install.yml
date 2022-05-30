@@ -16,7 +16,7 @@
               name:  "{{ nginx_packages }}"
               state: installed
         - name: Start and enable webserver
-              service:
+          service:
               name: nginx
               state: started
               enabled: yes
