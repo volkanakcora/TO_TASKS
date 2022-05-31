@@ -1,7 +1,3 @@
-- name: create apache user
-  import_tasks: configure_apache_user.yml
-  tags: deploy_nginx
-
 - name: Install nginx
   import_tasks: install.yml
   tags: deploy_nginx

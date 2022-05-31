@@ -62,7 +62,7 @@ class web_app():
     def run(self):
         """Run the app."""
 
-        self.app.run_server(debug=True, host='0.0.0.0')
+        self.app.run_server(debug=True, host='0.0.0.0', port=8050)
 
     #!------------------------------------------------------------------------
 

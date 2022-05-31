@@ -41,6 +41,10 @@
     owner: root
     group: root
 
+- name: Changing perm of "/start.sh", adding "+x"
+  file:
+    dest: start_file_source
+    mode: a+x
 
  
 

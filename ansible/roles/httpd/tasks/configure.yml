@@ -1,4 +1,6 @@
 - name: Virtual host is configured
+  become: yes
+  become_user: root
   template:
     src: "{{ nginx_file_source }}"
     dest: "{{ nginx_file_dest }}"
@@ -6,6 +8,8 @@
     group: "{{ backend_user }}"
 
 - name: proxy params are configured
+  become: yes
+  become_user: root
   template:
     src: "{{ nginx_proxy_params_src }}"
     dest: "{{ nginx_proxy_params_dest }}"
