@@ -12,4 +12,4 @@ class jokes(CollectorBase):
         json_data = json.loads(chuck_morris.text)
         with open("jokes.txt", "w") as myfile:
             myfile.write(json_data['value'])
-        return print(json_data['value'])
+        return json_data['value']

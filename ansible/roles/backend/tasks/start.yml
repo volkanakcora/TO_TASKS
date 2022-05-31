@@ -19,3 +19,24 @@
     chdir: "{{ backend_path }}"
   register: chuckmoris_result
 
+
+- name: check if the applications are running in container(chuckmoris&web)
+  become: true
+  become_user: root
+  shell: podman exec python ps aux
+  register: chuckmoris_result_app
+
+- name:
+  debug:
+    var: chuckmoris_result_app
+
+
+- name: check if the jokes are written to the file
+  become: true
+  become_user: root
+  shell: podman exec python bash -c "cat jokes.txt"
+  register: chuckmoris_result_jokes
+
+- name:
+  debug:
+    var: chuckmoris_result_jokes
