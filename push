@@ -1,7 +1,0 @@
-#/bin/bash
-
-git add --all
-git commit -m "latest_changes"
-git push -u origin master
-
-echo "files are sent to the repo"
