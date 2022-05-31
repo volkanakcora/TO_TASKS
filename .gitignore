@@ -6,4 +6,4 @@ venv/
 *.egg-info
 *.pyc
 *.sqlite
-.push
+push
