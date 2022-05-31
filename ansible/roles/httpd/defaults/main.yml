@@ -5,12 +5,14 @@ backend_user: "user1"
 #backend_wheel_url: "https://github.deutsche-boerse.de/dev/energy.statuspage/releases/download/v0.1.1/energy_status_page-0.1.1-py3-none-any.whl"
 
 #httpd 
-nginx_file_source: "files/py-app.j2"
-nginx_file_dest: "/etc/nginx/conf.d/py-app"
+nginx_file_source: "files/py-app.conf"
+nginx_file_dest: "/etc/nginx/conf.d/"
 
 ## httpd_packages
 nginx_packages:
   - nginx
   - mod_ssl
 
+nginx_proxy_params_src: "files/proxy_params"
+nginx_proxy_params_dest: "/etc/nginx/"
 

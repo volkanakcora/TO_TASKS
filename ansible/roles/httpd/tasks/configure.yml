@@ -1,7 +1,14 @@
 - name: Virtual host is configured
   template:
-    src: "{{ apache_file_source }}"
-    dest: "{{ apache_file_dest }}"
+    src: "{{ nginx_file_source }}"
+    dest: "{{ nginx_file_dest }}"
+    owner: "{{ backend_user }}"
+    group: "{{ backend_user }}"
+
+- name: proxy params are configured
+  template:
+    src: "{{ nginx_proxy_params_src }}"
+    dest: "{{ nginx_proxy_params_dest }}"
     owner: "{{ backend_user }}"
     group: "{{ backend_user }}"
 
