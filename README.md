@@ -39,6 +39,8 @@ Application tested locally through the browser and made sure that jokes are flow
 
 How to test web application working file: "curl localhost" -> this will redirect all connections to the application running in the container.
 
+Containers are controlled by podman(I.e docker).
+
 
 ### Built With
 
