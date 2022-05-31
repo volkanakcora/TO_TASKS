@@ -1,16 +1,19 @@
 ## :loudspeaker: **Hello to CHUCK NORRIS JOKES!** 
 
-Chuck norris app consist of two components. First one is the application where the chuck norris jokes are  retrieved, and the second one is basic Dash web server run behind the nginx reverse proxy. 
+Chuck Norris app consists of two components. The first one is the application where the chuck Norris jokes are retrieved, and the second one is the basic Dash webserver run behind the Nginx reverse proxy.
+
 
 Local testing: 
 ![Image](assets/local_test.png)
 
-I've added gunicorn&wsgi for local testing of web development in case needed '''CMD: gunicorn wsgi:application''' (consider using --bind option if you want to run it in a specific port). Run it throguht the web/ folder.
+I've added gunicorn&wsgi for local testing of web development in case needed '''CMD: gunicorn wsgi:application''' (consider using --bind option if you want to run it in a specific port). Run it through the web/ folder.
 
 ## :chart_with_upwards_trend: **Application** 
 : 
 
-How to deploy the application, nginx, and container: ''' ansible-playbook -v deploy_backend.yml --tags install,container,start,deploy_nginx --diff ''', make sure you are in the ansible directory in order to run the deployment. 
+How to deploy the application, Nginx, and container: ''' ansible-playbook -v deploy_backend.yml --tags install, container, start,deploy_nginx --diff ''', make sure you are in the ansible directory in order to run the deployment. 
+
+How to remove all images and containers, use "remove" tag. !! it wipes out everything, so be carefull if you have other containers or images running locally !!
 
 ## :see_no_evil: **Usage**
 
@@ -36,9 +39,9 @@ pip install -r requirements.txt
 
 Nginx is used as a reverse proxy, and it's RHEL compatible only. In case you will deploy it to ubuntu, deployment will most likely fail, and ansible package installations will not take place. 
 
-To view the chuck norris jokes, cat the jokes.txt file. I used it as a workaround, therefore web application looks up to this file. !! In case jokes are not showing up in the browser, make sure web application is looking up the correct directory(main dir)
+To view the Chuck Norris jokes, cat the jokes.txt file. I used it as a workaround, therefore web application looks up to this file. !! In case jokes are not showing up in the browser, make sure the web application is looking up the correct directory(main dir)
 
-Application tested locally through browser, and made sure that jokes are flowing in the browser. However, if you are going to deploy it to the host where you can't have browser confired(How I tested it), curl command will return dash configs, not jokes. Dash application simply isn't compatible with curl, so you wont be seeing any jokes in the browser unless you open it through a browser. 
+Application tested locally through the browser and made sure that jokes are flowing in the browser. However, if you are going to deploy it to the host where you can't have the browser configured(How I tested it), the curl command will return dash configs, not jokes. Dash application simply isn't compatible with curl, so you won't be seeing any jokes in the browser unless you open it through a browser. 
 
 How to test web application working file: "curl localhost" -> this will redirect all connections to the application running in the container.
 
