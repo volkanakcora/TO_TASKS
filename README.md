@@ -19,7 +19,7 @@ and you can run cmd: run_chucknorris, and it will start to print random jokes.
 
 How to deploy the application, Nginx, and container: ''' ```ansible-playbook -v deploy_backend.yml --tags install, container, start,deploy_nginx --diff``` ''', make sure you are in the ansible directory in order to run the deployment. 
 
-How to remove all images and containers, use "remove" tag. !! it wipes out everything, so be carefull if you have other containers or images running locally !!
+How to remove all images and containers, use "```remove```" tag. !! it wipes out everything, so be carefull if you have other containers or images running locally !!
 
 ## :see_no_evil: **Usage**
 
