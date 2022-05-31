@@ -43,7 +43,7 @@
 
 - name: Changing perm of "/start.sh", adding "+x"
   file:
-    dest: start_file_source
+    dest: "{{ start_file_dest }}"
     mode: a+x
 
  
