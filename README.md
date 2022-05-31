@@ -3,10 +3,14 @@
 Chuck Norris app consists of two components. The first one is the application where the chuck Norris jokes are retrieved, and the second one is the basic Dash webserver run behind the Nginx reverse proxy.
 
 
-Local testing: 
+## :loudspeaker: **Local testing!** 
 ![Image](assets/local_test.png)
 
-I've added gunicorn&wsgi for local testing of web development in case needed '''CMD: gunicorn wsgi:application''' (consider using --bind option if you want to run it in a specific port). Run it through the web/ folder.
+I've added gunicorn&wsgi for local testing of web development in case needed '''CMD: gunicorn wsgi:application''' (consider using --bind option if you want to run it in a specific port). Run it through the web/ folderprint random jokes. 
+
+If you do not want to deploy it to your computer, but just clone and test, run: ``python3 setup.py develop``
+
+and you can run cmd: run_chucknorris, and it will start to  
 
 ## :chart_with_upwards_trend: **Application** 
 : 
