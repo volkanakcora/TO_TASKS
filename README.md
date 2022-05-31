@@ -31,18 +31,20 @@ cd /DataTown
 pip install -r requirements.txt
 ```
 
-### Built With
-
-- [Dash](https://dash.plot.ly/) - Main server and interactive components
-
-
-Nginx is used as a reverse proxy, and it's RHEL compatible only. In case you will deploy it to ubuntu, deployment will most likely fail, and ansible package installations will not take place. 
+Nginx is used as a reverse proxy, and it's RHEL compatible only. In case you will deploy it to ubuntu, deployment will most likely fail, and ansible package installations will not take place. (Please see the nginx tasks if you would like to see more information about the deployment itself)
 
 To view the Chuck Norris jokes, cat the jokes.txt file. I used it as a workaround, therefore web application looks up to this file. !! In case jokes are not showing up in the browser, make sure the web application is looking up the correct directory(main dir)
 
 Application tested locally through the browser and made sure that jokes are flowing in the browser. However, if you are going to deploy it to the host where you can't have the browser configured(How I tested it), the curl command will return dash configs, not jokes. Dash application simply isn't compatible with curl, so you won't be seeing any jokes in the browser unless you open it through a browser. 
 
 How to test web application working file: "curl localhost" -> this will redirect all connections to the application running in the container.
+
+
+### Built With
+
+- [Dash](https://dash.plot.ly/) - Main server and interactive components
+
+
 
 
 ## :computer: **Technology stack**
