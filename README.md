@@ -10,7 +10,9 @@ I've added gunicorn&wsgi for local testing of web development in case needed '''
 
 If you do not want to deploy it to your computer, but just clone and test, run: ``python3 setup.py develop``
 
-and you can run cmd: run_chucknorris, and it will start to  
+and you can run cmd: run_chucknorris, and it will start to print random jokes.
+
+!!! do not forget to add your hosts to the inventory file !!!
 
 ## :chart_with_upwards_trend: **Application** 
 : 
