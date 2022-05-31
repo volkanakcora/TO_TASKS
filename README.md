@@ -18,10 +18,9 @@ How to remove all images and containers, use "remove" tag. !! it wipes out every
 ## :see_no_evil: **Usage**
 
 ```
+Linux
 source /opt/chuchnorris/backend/bin/activate
 
-# Or Linux
-source venv/bin/activate
 ```
 
 Clone the git repo, then install everything with ansible
