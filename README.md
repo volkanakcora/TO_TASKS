@@ -1,14 +1,38 @@
-Hello to CHUCK NORRIS JOKES!
+## :loudspeaker: **Hello to CHUCK NORRIS JOKES!** 
 
 Chuck norris app consist of two components. First one is the application where the chuck norris jokes are  retrieved, and the second one is basic Dash web server run behind the nginx reverse proxy. 
 
 Local testing: 
+![Image](assets/local_test.png)
 
-I've added gunicorn&wsgi for local testing in case needed '''CMD: gunicorn wsgi:application''' (consider using --bind option if you want to run it in a specific port)
+I've added gunicorn&wsgi for local testing of web development in case needed '''CMD: gunicorn wsgi:application''' (consider using --bind option if you want to run it in a specific port). Run it throguht the web/ folder.
 
-Application: 
+## :chart_with_upwards_trend: **Application** 
+: 
 
 How to deploy the application, nginx, and container: ''' ansible-playbook -v deploy_backend.yml --tags install,container,start,deploy_nginx --diff ''', make sure you are in the ansible directory in order to run the deployment. 
+
+## :see_no_evil: **Usage**
+
+```
+source /opt/chuchnorris/backend/bin/activate
+
+# Or Linux
+source venv/bin/activate
+```
+
+Clone the git repo, then install everything with ansible
+
+```
+git clone https://github.com/volkanakcora/New-Project.git
+cd /DataTown
+pip install -r requirements.txt
+```
+
+### Built With
+
+- [Dash](https://dash.plot.ly/) - Main server and interactive components
+
 
 Nginx is used as a reverse proxy, and it's RHEL compatible only. In case you will deploy it to ubuntu, deployment will most likely fail, and ansible package installations will not take place. 
 
@@ -17,3 +41,44 @@ To view the chuck norris jokes, cat the jokes.txt file. I used it as a workaroun
 Application tested locally through browser, and made sure that jokes are flowing in the browser. However, if you are going to deploy it to the host where you can't have browser confired(How I tested it), curl command will return dash configs, not jokes. Dash application simply isn't compatible with curl, so you wont be seeing any jokes in the browser unless you open it through a browser. 
 
 How to test web application working file: "curl localhost" -> this will redirect all connections to the application running in the container.
+
+
+## :computer: **Technology stack**
+
+Package              Version
+-------------------- -----------
+Brotli               1.0.9
+certifi              2022.5.18.1
+charset-normalizer   2.0.12
+chucknorris          1.0.0
+click                8.0.4
+dash                 2.4.1
+dash-core-components 2.0.0
+dash-html-components 2.0.0
+dash-table           5.0.0
+dataclasses          0.8
+Flask                2.0.3
+Flask-Compress       1.12
+gunicorn             20.1.0
+idna                 3.3
+importlib-metadata   4.8.3
+itsdangerous         2.0.1
+Jinja2               3.0.3
+MarkupSafe           2.0.1
+numpy                1.19.5
+pandas               1.1.5
+pip                  21.3.1
+plotly               5.8.0
+python-dateutil      2.8.2
+pytz                 2022.1
+requests             2.27.1
+schedule             1.1.0
+setuptools           59.6.0
+six                  1.16.0
+tenacity             8.0.1
+typing_extensions    4.1.1
+urllib3              1.26.9
+Werkzeug             2.0.3
+wheel                0.37.1
+zipp                 3.6.0
+
