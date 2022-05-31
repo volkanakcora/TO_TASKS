@@ -6,7 +6,7 @@ Chuck Norris app consists of two components. The first one is the application wh
 ## :loudspeaker: **Local testing!** 
 ![Image](assets/local_test.png)
 
-I've added gunicorn&wsgi for local testing of web development in case needed '''CMD: gunicorn wsgi:application''' (consider using --bind option if you want to run it in a specific port). Run it through the web/ folderprint random jokes. 
+I've added gunicorn&wsgi for local testing of web development in case needed '''CMD: ```gunicorn wsgi:application``` ''' (consider using --bind option if you want to run it in a specific port). Run it through the web/ folderprint random jokes. 
 
 If you do not want to deploy it to your computer, but just clone and test, run: ``python3 setup.py develop``
 
@@ -15,7 +15,7 @@ and you can run cmd: run_chucknorris, and it will start to
 ## :chart_with_upwards_trend: **Application** 
 : 
 
-How to deploy the application, Nginx, and container: ''' ansible-playbook -v deploy_backend.yml --tags install, container, start,deploy_nginx --diff ''', make sure you are in the ansible directory in order to run the deployment. 
+How to deploy the application, Nginx, and container: ''' ```ansible-playbook -v deploy_backend.yml --tags install, container, start,deploy_nginx --diff``` ''', make sure you are in the ansible directory in order to run the deployment. 
 
 How to remove all images and containers, use "remove" tag. !! it wipes out everything, so be carefull if you have other containers or images running locally !!
 
