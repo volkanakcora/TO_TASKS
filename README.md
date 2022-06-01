@@ -21,6 +21,10 @@ How to deploy the application, Nginx, and container: ''' ```ansible-playbook -v 
 
 How to remove all images and containers, use "```remove```" tag. !! it wipes out everything, so be carefull if you have other containers or images running locally !!
 
+You may see this error when ansible restart the nginx: ```nginx: [emerg] socket() [::]:80 failed (97: Address family not supported by protocol)```
+
+that means IPv6 wasn't configured in this host, so simply comment the ```#listen       [::]:80;``` in the nginx.conf file, then it should start.
+
 ## :see_no_evil: **Usage**
 
 ```
